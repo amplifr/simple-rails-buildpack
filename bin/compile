@@ -45,6 +45,8 @@ title "Unpacking node"
 
 mkdir -p "$node_path"
 tar zxf "$node_arch_cache_path" -C "$node_path"
+title "LS"
+title `ls -la $node_path`
 title "Moving file"
 mv $node_path/$node_untar_filename $node_path/node
 export PATH="$node_path:$PATH"
@@ -52,6 +54,8 @@ title "LS"
 title `ls -la $node_path`
 title "Version"
 title `node -v`
+
+error
 
 if [ -f "$build_dir/.ruby-version" ]; then
 ruby_version=${RUBY_VERSION:-"2.3.6"}	+  app_ruby_version=`cat $build_dir/.ruby-version`
