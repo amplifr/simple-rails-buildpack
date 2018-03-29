@@ -24,9 +24,9 @@ if [ -d "$env_dir" ]; then
   done
 fi
 
-node_version=${NODE_VERSION:-"0.4.7"}
+node_version=${NODE_VERSION:-"0.10.30"}
 node_vendor_url=${NODE_VENDOR_URL:-"https://s3pository.heroku.com/node/v"}
-node_url="$node_vendor_url$node_version/node-$node_version.tgz"
+node_url="$node_vendor_url$node_version/node-$node_version.tar.gz"
 
 node_arch_filename="node-$node_version.tgz"
 node_arch_cache_path="$2/$node_arch_filename"
