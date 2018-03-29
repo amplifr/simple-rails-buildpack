@@ -29,10 +29,6 @@ node_vendor_url=${NODE_VENDOR_URL:-"https://s3pository.heroku.com/node/v"}
 node_untar_filename="node-v$node_version-linux-x64"
 node_arch_filename="$node_untar_filename.tar.gz"
 node_url="$node_vendor_url$node_version/$node_arch_filename"
-#node_version=${NODE_VERSION:-"0.4.7"}
-#node_arch_filename="node-$node_version.tgz"
-#node_vendor_url=${NODE_VENDOR_URL:-"https://s3.amazonaws.com/language-pack-ruby/"}
-#node_url="$node_vendor_url$node_arch_filename"
 
 node_arch_cache_path="$cache_dir/$node_arch_filename"
 node_path="$build_dir/vendor"
@@ -46,27 +42,10 @@ fi
 
 title "Unpacking node"
 
-
 mkdir -p "$node_path"
 tar zxf "$node_arch_cache_path" -C "$node_path"
-title "LS"
-echo `ls -la $node_path`
-title "Moving file"
 mv $node_path/$node_untar_filename $node_path/node
-title "LS"
-echo `ls -la $node_path`
-title "Path"
-echo $PATH
-title "Export path"
 export PATH="$node_path/node/bin:$PATH"
-title "Path"
-echo $PATH
-title "Version"
-echo `node -v`
-title "Version2"
-echo `$node_path/node/bin/node -v`
-
-error
 
 if [ -f "$build_dir/.ruby-version" ]; then
 ruby_version=${RUBY_VERSION:-"2.3.6"}	+  app_ruby_version=`cat $build_dir/.ruby-version`
