@@ -55,8 +55,12 @@ title "Path"
 echo $PATH
 title "Export path"
 export PATH="$node_path:$PATH"
+title "Path"
+echo $PATH
 title "Version"
-title `node -v`
+echo `node -v`
+title "Version2"
+echo `$node_path/node -v`
 
 error
 
@@ -128,7 +132,7 @@ fi
 
 
 mkdir -p "$build_dir/.profile.d"
-echo 'export PATH=$HOME/bin:$HOME/vendor/bundle/bin:$HOME/vendor/ruby/bin:$PATH' > "$build_dir/.profile.d/rails.sh"
+echo 'export PATH=$HOME/bin:$HOME/vendor/bundle/bin:$HOME/vendor/node/bin:$HOME/vendor/ruby/bin:$PATH' > "$build_dir/.profile.d/rails.sh"
 echo 'export LANG=en_US.UTF-8' >> "$build_dir/.profile.d/rails.sh"
 
 echo "export PATH=$PATH" > "$buildpack_dir/export"
