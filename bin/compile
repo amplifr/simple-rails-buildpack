@@ -26,9 +26,9 @@ fi
 
 node_version=${NODE_VERSION:-"0.10.30"}
 node_vendor_url=${NODE_VENDOR_URL:-"https://s3pository.heroku.com/node/v"}
-node_url="$node_vendor_url$node_version/node-$node_version.tar.gz"
+node_url="$node_vendor_url$node_version/node-v$node_version-linux-x64.tar.gz"
 
-node_arch_filename="node-$node_version.tgz"
+node_arch_filename="node-v$node_version-linux-x64.tar.gz"
 node_arch_cache_path="$2/$node_arch_filename"
 node_path="$build_dir/vendor/node"
 
