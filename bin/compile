@@ -19,6 +19,28 @@ if [ -d "$env_dir" ]; then
   done
 fi
 
+node_version=${NODE_VERSION:-"0.4.7"}
+node_vendor_url=${NODE_VENDOR_URL:-"https://s3pository.heroku.com/node/v"}
+node_url="$node_vendor_url$node_version/node-$node_version.tgz"
+
+node_arch_filename="node-$node_version.tgz"
+node_arch_cache_path="$2/$node_arch_filename"
+node_path="$build_dir/vendor/node"
+
+if [ ! -e "$node_arch_cache_path" ]; then
+  title "Download node $node_version from $node_url"
+  wget "$node_url" -O "$node_arch_cache_path" --quiet
+else
+  title "Node $node_version was cached before."
+fi
+
+title "Unpacking node"
+
+export PATH="$node_path/bin:$PATH"
+
+mkdir -p "$node_path"
+tar zxf "$node_arch_cache_path" -C "$node_path"
+
 if [ -f "$build_dir/.ruby-version" ]; then
 ruby_version=${RUBY_VERSION:-"2.3.6"}	+  app_ruby_version=`cat $build_dir/.ruby-version`
 fi
