@@ -49,9 +49,12 @@ title "LS"
 echo `ls -la $node_path`
 title "Moving file"
 mv $node_path/$node_untar_filename $node_path/node
-export PATH="$node_path:$PATH"
 title "LS"
 echo `ls -la $node_path`
+title "Path"
+echo $PATH
+title "Export path"
+export PATH="$node_path:$PATH"
 title "Version"
 title `node -v`
 
