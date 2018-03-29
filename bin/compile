@@ -48,9 +48,9 @@ mv $node_path/$node_untar_filename $node_path/node
 export PATH="$node_path/node/bin:$PATH"
 
 if [ -f "$build_dir/.ruby-version" ]; then
-ruby_version=${RUBY_VERSION:-"2.3.6"}	+  app_ruby_version=`cat $build_dir/.ruby-version`
+ruby_version=${RUBY_VERSION:-"2.5.1"}	+  app_ruby_version=`cat $build_dir/.ruby-version`
 fi
-app_ruby_version=${app_ruby_version:-"2.3.6"}
+app_ruby_version=${app_ruby_version:-"2.5.1"}
 ruby_version=${RUBY_VERSION:-$app_ruby_version}
 
 vendor_url=${RUBY_VENDOR_URL:-"https://s3-external-1.amazonaws.com/heroku-buildpack-ruby/cedar-14"}
