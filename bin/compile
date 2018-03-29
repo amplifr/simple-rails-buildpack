@@ -41,11 +41,11 @@ fi
 
 title "Unpacking node"
 
-export PATH="$node_path/bin:$PATH"
 
 mkdir -p "$node_path"
 tar zxf "$node_arch_cache_path" -C "$node_path"
-title `ls $node_path/bin`
+export PATH="$node_path:$PATH"
+title `ls $node_path`
 
 if [ -f "$build_dir/.ruby-version" ]; then
 ruby_version=${RUBY_VERSION:-"2.3.6"}	+  app_ruby_version=`cat $build_dir/.ruby-version`
