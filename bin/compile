@@ -30,7 +30,7 @@ node_url="$node_vendor_url$node_version/node-v$node_version-linux-x64.tar.gz"
 
 node_arch_filename="node-v$node_version-linux-x64.tar.gz"
 node_arch_cache_path="$2/$node_arch_filename"
-node_path="$build_dir/vendor/node"
+node_path="$build_dir/vendor/node/bin"
 
 if [ ! -e "$node_arch_cache_path" ]; then
   title "Download node $node_version from $node_url"
@@ -45,8 +45,7 @@ export PATH="$node_path/bin:$PATH"
 
 mkdir -p "$node_path"
 tar zxf "$node_arch_cache_path" -C "$node_path"
-title `cat $node_path`
-title `cat $node_path/bin`
+title `ls $node_path/bin`
 
 if [ -f "$build_dir/.ruby-version" ]; then
 ruby_version=${RUBY_VERSION:-"2.3.6"}	+  app_ruby_version=`cat $build_dir/.ruby-version`
