@@ -49,7 +49,7 @@ export PATH="$node_path/node/bin:$PATH"
 
 title "Installing new phantomjs"
 npm install -g phantomjs-prebuilt
-mv /app/vendor/node/lib/node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs /app/.apt/usr/lib/phantomjs/phantomjs
+mv /tmp/build/vendor/node/lib/node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs /app/.apt/usr/lib/phantomjs/phantomjs
 
 if [ -f "$build_dir/.ruby-version" ]; then
 ruby_version=${RUBY_VERSION:-"2.5.1"}	+  app_ruby_version=`cat $build_dir/.ruby-version`
